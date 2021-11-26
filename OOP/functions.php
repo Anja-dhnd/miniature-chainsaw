@@ -1,7 +1,21 @@
 <?php
 
+require_once __DIR__. 'classes/Ship.php';
+
 function get_ships()
 {
+    $ships = array();
+
+    $ship = new Ship();
+    $ship->name = 'Jedi Starfighter';
+    $ship->weaponPower = 5;
+    $ship->strength = 30;
+    $ship->jediFactor = 15;
+    $ships['starfighter'] = $ship;
+
+    return $ships;
+
+/*
     return array(
         'starfighter' => array(
             'name' => 'Jedi Starfighter',
@@ -28,8 +42,10 @@ function get_ships()
             'strength' => 50,
         ),
     );
-}
 
+*/
+
+}
 /**
  * Our complex fighting algorithm!
  *
@@ -90,3 +106,5 @@ function didJediDestroyShipUsingTheForce(array $ship)
 
     return mt_rand(1, 100) <= ($jediHeroProbability*100);
 }
+
+
