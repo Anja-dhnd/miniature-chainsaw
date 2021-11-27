@@ -15,7 +15,7 @@ function get_ships()
 
     return $ships;
 
-/*
+
     return array(
         'starfighter' => array(
             'name' => 'Jedi Starfighter',
@@ -43,7 +43,7 @@ function get_ships()
         ),
     );
 
-*/
+
 
 }
 /**
