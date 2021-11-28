@@ -2,7 +2,6 @@
 
 require_once  __DIR__ . '/classes/Ship.php';
 
-
 /**
  * @param Ship $someShip
  */
@@ -33,10 +32,8 @@ echo '<hr/>';
 printShipSummary($otherShip);
 echo '<hr/>';
 
-// strength comparison
-echo'<hr />';
-if ($myShip->strengthComparator($otherShip)) {
-    echo $otherShip->name . ' has more strength ';
+if ($myShip->strengthComparator()$otherShip)) {
+    echo $otherShip->name.' has more strength';
 } else {
-    echo $myShip->name .' has more strength';
+    echo $myShip->name.' has more strength';
 }

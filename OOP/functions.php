@@ -2,7 +2,7 @@
 
 require_once __DIR__. '/classes/Ship.php';
 
-function get_ships(): array
+function get_ships()
 {
     $ships = array();
 
@@ -68,7 +68,7 @@ function get_ships(): array
  *
  * @return array With keys winning_ship, losing_ship & used_jedi_powers
  */
-function battle(Ship $ship1, $ship1Quantity, Ship $ship2, $ship2Quantity): array
+function battle(Ship $ship1, $ship1Quantity, Ship $ship2, $ship2Quantity)
 {
     $ship1Health = $ship1->getStrength() * $ship1Quantity;
     $ship2Health = $ship2->getStrength() * $ship2Quantity;
@@ -117,7 +117,7 @@ function battle(Ship $ship1, $ship1Quantity, Ship $ship2, $ship2Quantity): array
     );
 }
 
-function didJediDestroyShipUsingTheForce(Ship $ship): bool
+function didJediDestroyShipUsingTheForce(Ship $ship)
 {
     $jediHeroProbability = $ship->getJediFactor() / 100;
 

@@ -1,7 +1,6 @@
 <?php
 require __DIR__.'/functions.php';
 
-
 $ships = get_ships();
 
 $errorMessage = '';
@@ -22,7 +21,7 @@ if (isset($_GET['error'])) {
 }
 ?>
 
-<html>
+<html lang="">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,22 +64,19 @@ if (isset($_GET['error'])) {
         </tr>
         </thead>
         <tbody>
-        <!--                BRACKETS USED FOR ARRAY OBJECTS. HERE USE ARROW FOR CLASS OBJ -->
-        <!--                    --><?php //foreach ($ships as $ship): ?>
-        <!--                        <tr>-->
-        <!--                            <td>--><?php //echo $ship['name']; ?><!--</td>-->
-        <!--                            <td>--><?php //echo $ship['weapon_power']; ?><!--</td>-->
-        <!--                            <td>--><?php //echo $ship['jedi_factor']; ?><!--</td>-->
-        <!--                            <td>--><?php //echo $ship['strength']; ?><!--</td>-->
-        <!--                        </tr>-->
-        <!--                    --><?php //endforeach; ?>
-
         <?php foreach ($ships as $ship): ?>
             <tr>
-                <td><?php echo $ship->getName; ?></td>
-                <td><?php echo $ship->weaponPower; ?></td>
-                <td><?php echo $ship->jediFactor; ?></td>
-                <td><?php echo $ship->strength; ?></td>
+                <td><?php echo $ship->getName(); ?></td>
+                <td><?php echo $ship->getWeaponPower(); ?></td>
+                <td><?php echo $ship->getJediFactor(); ?></td>
+                <td><?php echo $ship->getStrength(); ?></td>
+                <td>
+                    <?php if ($ship->isFunctional()): ?>
+                        <i class="fa fa-sun-o"></i>
+                    <?php else: ?>
+                        <i class="fa fa-cloud"></i>
+                    <?php endif; ?>
+                </td>
             </tr>
         <?php endforeach; ?>
         </tbody>
@@ -88,7 +84,7 @@ if (isset($_GET['error'])) {
 
     <div class="battle-box center-block border">
         <div>
-            <form method="POST" action="/battle.php">
+            <form method="POST" action="battle.php">
                 <h2 class="text-center">The Mission</h2>
                 <input class="center-block form-control text-field" type="text" name="ship1_quantity" placeholder="Enter Number of Ships" />
                 <select class="center-block form-control btn drp-dwn-width btn-default dropdown-toggle" name="ship1_name">
@@ -119,4 +115,3 @@ if (isset($_GET['error'])) {
 </div>
 </body>
 </html>
-

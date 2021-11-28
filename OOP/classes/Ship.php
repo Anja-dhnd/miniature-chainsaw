@@ -1,10 +1,28 @@
 <?php
+
 class Ship
 {
     private string $name;
+
     private int $weaponPower = 0;
+
     private int $jediFactor = 0;
+
     private int $strength = 0;
+
+    private int $underRepair;
+
+    public function __construct($name)
+    {
+        $this->name = $name;
+        // randomly put this ship under repair
+        $this->underRepair = mt_rand(1, 100) < 30;
+    }
+
+    public function isFunctional(): bool
+    {
+        return !$this->underRepair;
+    }
 
     public function sayHello(): void
     {
@@ -65,30 +83,6 @@ class Ship
     }
 
     /**
-     * @param int $weaponPower
-     */
-    public function setWeaponPower(int $weaponPower): void
-    {
-        $this->weaponPower = $weaponPower;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName(string $name): void
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @param int $jediFactor
-     */
-    public function setJediFactor(int $jediFactor): void
-    {
-        $this->jediFactor = $jediFactor;
-    }
-
-    /**
      * @return int
      */
     public function getJediFactor(): int
@@ -96,5 +90,27 @@ class Ship
         return $this->jediFactor;
     }
 
+    /**
+     * @param string $name
+     */
+    public function setName($name): void
+    {
+        $this->name = $name;
+    }
 
+    /**
+     * @param int $weaponPower
+     */
+    public function setWeaponPower($weaponPower): void
+    {
+        $this->weaponPower = $weaponPower;
+    }
+
+    /**
+     * @param int $jediFactor
+     */
+    public function setJediFactor($jediFactor): void
+    {
+        $this->jediFactor = $jediFactor;
+    }
 }
