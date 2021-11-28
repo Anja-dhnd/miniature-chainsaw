@@ -6,12 +6,12 @@ class Ship
     private int $jediFactor = 0;
     private int $strength = 0;
 
-    public function sayHello()
+    public function sayHello(): void
     {
         echo 'Hello!';
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -19,18 +19,18 @@ class Ship
     public function setStrength($number): void
     {
         if (!is_numeric($number)) {
-            throw new \Exception('Invalid strength passed '.$number);
+            throw new \RuntimeException('Invalid strength passed '.$number);
         }
 
         $this->strength = $number;
     }
 
-    public function getStrength()
+    public function getStrength(): int
     {
         return $this->strength;
     }
 
-    public function getNameAndSpecs($useShortFormat = false)
+    public function getNameAndSpecs($useShortFormat = false): ?string
     {
         if ($useShortFormat) {
             return sprintf(
@@ -86,6 +86,14 @@ class Ship
     public function setJediFactor(int $jediFactor): void
     {
         $this->jediFactor = $jediFactor;
+    }
+
+    /**
+     * @return int
+     */
+    public function getJediFactor(): int
+    {
+        return $this->jediFactor;
     }
 
 
