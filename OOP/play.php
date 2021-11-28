@@ -2,31 +2,36 @@
 
 require_once  __DIR__ . '/classes/Ship.php';
 
-function printShipSummary($someShip){
 
-   echo 'Ship name: ' .$someShip->name;
-    echo '<hr />';
+/**
+ * @param Ship $someShip
+ */
+function printShipSummary($someShip)
+{
+    echo 'Ship Name: '.$someShip->getName();
+    echo '<hr/>';
     $someShip->sayHello();
-    echo '<hr />';
-    echo $someShip->getName();
-    echo '<hr />';
-    var_dump($someShip->strength);
-    echo '<hr />';
+    echo '<hr/>';
+    echo $someShip->getNameAndSpecs(false);
+    echo '<hr/>';
     echo $someShip->getNameAndSpecs(true);
 }
 
+// but it doesn't do anything yet...
 $myShip = new Ship();
-$myShip->name = 'Jedi Starship';
-$myShip->strength = 20;
+$myShip->name = 'TIE Fighter';
+$myShip->weaponPower = 10;
+
+printShipSummary($myShip);
 
 $otherShip = new Ship();
 $otherShip->name = 'Imperial Shuttle';
+$otherShip->weaponPower = 5;
 $otherShip->strength = 50;
-$otherShip->weaponPower = 10;
 
-printShipSummary($myShip);
-echo '<hr />';
+echo '<hr/>';
 printShipSummary($otherShip);
+echo '<hr/>';
 
 // strength comparison
 echo'<hr />';
