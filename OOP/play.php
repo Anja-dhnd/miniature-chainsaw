@@ -1,6 +1,6 @@
 <?php
 
-require_once  __DIR__ . '/classes/Ship.php';
+require_once __DIR__ . '/classes/Ship.class.php';
 
 /**
  * @param Ship $someShip

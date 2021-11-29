@@ -26,10 +26,13 @@ if ($ship1Quantity <= 0 || $ship2Quantity <= 0) {
 $ship1 = $ships[$ship1Name];
 $ship2 = $ships[$ship2Name];
 
-$outcome = battle($ship1, $ship1Quantity, $ship2, $ship2Quantity);
+$battleManager = new BattleManager();
+
+
+$outcome = $battleManager->battle($ship1, $ship1Quantity, $ship2, $ship2Quantity);
 ?>
 
-<html>
+<html lang="EN">
     <head>
         <meta charset="utf-8">
            <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,8 +42,8 @@ $outcome = battle($ship1, $ship1Quantity, $ship2, $ship2Quantity);
            <!-- Bootstrap -->
            <link href="css/bootstrap.min.css" rel="stylesheet">
            <link href="css/style.css" rel="stylesheet">
-           <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-           <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+           <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+           <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
            
            <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
            <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -73,7 +76,7 @@ $outcome = battle($ship1, $ship1Quantity, $ship2, $ship2Quantity);
                     <?php endif; ?>
                 </h3>
                 <p class="text-center">
-                    <?php if ($outcome['winning_ship'] == null): ?>
+                    <?php if ($outcome['winning_ship'] === null): ?>
                         Both ships destroyed each other in an epic battle to the end.
                     <?php else: ?>
                         The <?php echo $outcome['winning_ship']['name']; ?>
@@ -85,7 +88,7 @@ $outcome = battle($ship1, $ship1Quantity, $ship2, $ship2Quantity);
                     <?php endif; ?>
                 </p>
             </div>
-            <a href="/index.php"><p class="text-center"><i class="fa fa-undo"></i> Battle again</p></a>
+            <a href="index.php"><p class="text-center"><i class="fa fa-undo"></i> Battle again</p></a>
         
             <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
