@@ -1,13 +1,10 @@
 <?php
+require_once __DIR__ . '/Encounter.php';
 
 const RESULT_WINNER = 1;
 const RESULT_LOSER = -1;
 const RESULT_DRAW = 0;
 const RESULT_POSSIBILITIES = [RESULT_WINNER, RESULT_LOSER, RESULT_DRAW];
-
-
-
-
 
 $greg = 400;
 $jade = 800;

@@ -2,11 +2,6 @@
 
 class Encounter
 {
-    public int $RESULT_WINNER;
-    public int $RESULT_LOSER;
-    public int $RESULT_DRAW;
-
-
     function probabilityAgainst(int $levelPlayerOne, int $againstLevelPlayerTwo): float|int
     {
         return 1/(1+(10 ** (($againstLevelPlayerTwo - $levelPlayerOne)/400)));
@@ -17,7 +12,7 @@ class Encounter
             trigger_error(sprintf('Invalid result. Expected %s',implode(' or ', RESULT_POSSIBILITIES)));
         }
 
-        $levelPlayerOne += (int) (32 * ($playerOneResult - probabilityAgainst($levelPlayerOne, $againstLevelPlayerTwo)));
+        $levelPlayerOne += (int) (32 * ($playerOneResult - $this->probabilityAgainst($levelPlayerOne, $againstLevelPlayerTwo)));
     }
 
 }
